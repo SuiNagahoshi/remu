@@ -1,3 +1,7 @@
+use remu::emulator::CpuEmulator;
+use remu::io::Port;
+use remu::register::Register;
+use remu::rom::Rom;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
@@ -15,5 +19,14 @@ fn main() {
         .collect::<Vec<String>>();
     for i in &operations {
         println!("{}", i);
+    }
+
+    let rom = Rom::new(program);
+    let register = Register::new();
+    let port = Port::new(0b0000, 0b0000);
+    let mut emulator = CpuEmulator::with(register, port, rom);
+    match emulator.exec() {
+        Ok(_) => (),
+        Err(error) => panic!("{:?}", error),
     }
 }
