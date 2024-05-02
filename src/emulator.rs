@@ -34,10 +34,10 @@ impl CpuEmulator {
     }
 
     fn decode(&self, data: u8) -> Result<(Opcode, u8), EmulatorError> {
-        let opelation = data >> 4;
+        let operation = data >> 4;
         let immediate = data & 0x0f;
 
-        if let Some(opcode) = FromPrimitive::from_u8(opelation) {
+        if let Some(opcode) = FromPrimitive::from_u8(operation) {
             match opcode {
                 Opcode::AddA
                 | Opcode::AddB
