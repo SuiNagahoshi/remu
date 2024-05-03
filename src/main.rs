@@ -19,9 +19,10 @@ fn main() {
         .lines()
         .map(|line| line.unwrap())
         .collect::<Vec<String>>();
-    for i in &operations {
-        println!("{}", i);
-    }
+    //for i in &operations {
+    //    println!("{}", i);
+    //}
+    println!("{:?}", operations);
 
     let mut parser = Parser::new(operations);
     let tokens = match parser.parse() {

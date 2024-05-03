@@ -10,6 +10,7 @@ impl Parser {
         let mut source = Vec::new();
         for operation in operations {
             let split: Vec<&str> = operation.split(' ').collect();
+            println!("{:?}", split);
             for line in split {
                 let cloned = line.to_string();
                 source.push(cloned);
@@ -48,9 +49,9 @@ impl Parser {
                     .get(self.position)
                     .ok_or_else(|| EmulatorError::new("Failed to parse mov right hand"))?;
 
-                let token = if lhs == "B" && "rhs" == "A" {
+                let token = if lhs == "B" && rhs == "A" {
                     Token::MovBA
-                } else if lhs == "A" && "rhs" == "B" {
+                } else if lhs == "A" && rhs == "B" {
                     Token::MovAB
                 } else {
                     Token::Mov(
