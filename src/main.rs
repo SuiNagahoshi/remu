@@ -1,5 +1,7 @@
+use remu::compiler::Compiler;
 use remu::emulator::CpuEmulator;
 use remu::io::Port;
+use remu::parser::Parser;
 use remu::register::Register;
 use remu::rom::Rom;
 use std::fs::File;
@@ -20,6 +22,30 @@ fn main() {
     for i in &operations {
         println!("{}", i);
     }
+
+    let mut parser = Parser::new(operations);
+    let tokens = match parser.parse() {
+        Ok(tokens) => tokens,
+        Err(err) => panic!("{:?}", err),
+    };
+
+    println!("{:?}", tokens);
+
+    let compiler = Compiler::new();
+    let program = match compiler.compile(tokens) {
+        Ok(program) => program,
+        Err(err) => panic!("{:?}", err),
+    };
+
+    println!("{:?}", program);
+
+    /*
+    let operations = file
+        .chars()
+        .into_iter()
+        .map(|char| char.to_digit(10000).unwrap() as u8)
+        .collect();
+    */
 
     let rom = Rom::new(program);
     let register = Register::new();

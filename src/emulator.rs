@@ -72,7 +72,7 @@ impl CpuEmulator {
                 Opcode::InA => self.in_a(),
                 Opcode::InB => self.in_b(),
                 Opcode::OutB => self.out_b(),
-                Opcode::OutIm => self.out_immedilate(immediate),
+                Opcode::OutIm => self.out_immediate(immediate),
             };
 
             if opcode != Opcode::Jmp && opcode != Opcode::Jnc {

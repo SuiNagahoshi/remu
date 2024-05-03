@@ -1,2 +1,4 @@
-Hello, World!
-IS here 2nd line!?
+mov A 0001
+add A 0001
+mov B A
+out B

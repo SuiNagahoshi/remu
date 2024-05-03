@@ -46,7 +46,7 @@ impl Parser {
                 let rhs = self
                     .source
                     .get(self.position)
-                    .ok_or_else(|| "Failed to parse mov right hand")?;
+                    .ok_or_else(|| EmulatorError::new("Failed to parse mov right hand"))?;
 
                 let token = if lhs == "B" && "rhs" == "A" {
                     Token::MovBA
