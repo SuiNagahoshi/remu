@@ -1,20 +1,9 @@
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct Register {
     register_a: u8,
     register_b: u8,
     carry_flag: u8,
     program_counter: u8,
-}
-
-impl Default for Register {
-    fn default() -> Self {
-        Self {
-            register_a: u8::default(),
-            register_b: u8::default(),
-            carry_flag: u8::default(),
-            program_counter: u8::default(),
-        }
-    }
 }
 
 impl Register {

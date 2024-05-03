@@ -11,7 +11,7 @@ impl Default for Compiler {
 
 impl Compiler {
     pub fn new() -> Self {
-        Self::default()
+        Self
     }
 
     pub fn compile(&self, tokens: Vec<Token>) -> Result<Vec<u8>, EmulatorError> {
