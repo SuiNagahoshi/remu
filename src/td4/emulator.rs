@@ -1,8 +1,8 @@
-use crate::error::EmulatorError;
-use crate::io::Port;
-use crate::opcode::Opcode;
-use crate::register::Register;
-use crate::rom::Rom;
+use super::error::EmulatorError;
+use super::io::Port;
+use super::opcode::Opcode;
+use super::register::Register;
+use super::rom::Rom;
 use num_traits::FromPrimitive;
 
 pub struct CpuEmulator {

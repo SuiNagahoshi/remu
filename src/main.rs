@@ -1,9 +1,9 @@
-use remu::compiler::Compiler;
-use remu::emulator::CpuEmulator;
-use remu::io::Port;
-use remu::parser::Parser;
-use remu::register::Register;
-use remu::rom::Rom;
+use remu::td4::compiler::Compiler;
+use remu::td4::emulator::CpuEmulator;
+use remu::td4::io::Port;
+use remu::td4::parser::Parser;
+use remu::td4::register::Register;
+use remu::td4::rom::Rom;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 
