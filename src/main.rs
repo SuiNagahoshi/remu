@@ -4,14 +4,9 @@ extern crate clap;
 use clap::Parser;
 
 use remu::td4;
-use remu::td4::compiler::Compiler;
-use remu::td4::emulator::CpuEmulator;
-use remu::td4::io::Port;
-use remu::td4::parser;
-use remu::td4::register::Register;
-use remu::td4::rom::Rom;
+
 use std::fs::File;
-use std::io::{stdout, BufRead, BufReader};
+use std::io::{BufRead, BufReader};
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]

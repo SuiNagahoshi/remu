@@ -8,9 +8,12 @@ pub struct Parser {
 impl Parser {
     pub fn new(operations: Vec<String>) -> Parser {
         let mut source = Vec::new();
+
         for operation in operations {
             let split: Vec<&str> = operation.split(' ').collect();
+
             println!("{:?}", split);
+
             for line in split {
                 let cloned = line.to_string();
                 source.push(cloned);
@@ -37,6 +40,7 @@ impl Parser {
 
             if operation == "mov" {
                 self.position += 1;
+
                 let lhs = self
                     .source
                     .get(self.position)
@@ -65,12 +69,14 @@ impl Parser {
 
             if operation == "add" {
                 self.position += 1;
+
                 let lhs = self
                     .source
                     .get(self.position)
                     .ok_or_else(|| EmulatorError::new("Failed to parse mov left hand"))?;
 
                 self.position += 1;
+
                 let rhs = self
                     .source
                     .get(self.position)
@@ -137,7 +143,9 @@ impl Parser {
 
     fn from_binary_to_decimal(&self, text: impl Into<String>) -> Result<u8, EmulatorError> {
         let ret = text.into();
+
         let binary_to_decimal = u8::from_str_radix(&ret, 2);
+
         binary_to_decimal
             .map_err(|_| EmulatorError::new(&format!("Failed to parse string: {}", ret)))
     }

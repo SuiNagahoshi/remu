@@ -38,6 +38,7 @@ impl Compiler {
                 Token::OutB => self.generate_binary_code_with_zero_padding(0b1001),
                 Token::OutIm(immediate) => self.generate_binary_code(0b1011, immediate),
             };
+
             result.push(program);
         }
 

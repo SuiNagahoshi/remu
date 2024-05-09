@@ -3,6 +3,7 @@ use super::io::Port;
 use super::opcode::Opcode;
 use super::register::Register;
 use super::rom::Rom;
+
 use num_traits::FromPrimitive;
 
 pub struct CpuEmulator {
