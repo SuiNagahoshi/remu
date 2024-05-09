@@ -2,9 +2,12 @@
 name = "remu"
 version = "0.1.0"
 edition = "2021"
+authors = ["sui nagahoshi <MISOLA Project.>"]
+description = "very simple rust's emulator"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+clap = { version = "4.5.4", features = ["derive"] }
 num-derive = "0.4.2"
 num-traits = "0.2.18"
